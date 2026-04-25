@@ -1,2 +1,3 @@
-# helidon-mongodb-cqrs
+= helidon-mongodb-cqrs
+
 CQRS Java sample using Helidon and MongoDB

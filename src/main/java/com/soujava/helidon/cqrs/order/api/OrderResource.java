@@ -23,6 +23,7 @@ import jakarta.ws.rs.core.Response;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -57,6 +58,13 @@ public class OrderResource {
 
     @POST
     public Response createOrder(CreateOrderRequest request) {
+        if (request == null || request.getCustomerId() == null || request.getItems() == null
+                || request.getItems().isEmpty()) {
+            return Response.status(Response.Status.BAD_REQUEST)
+                    .entity(Map.of("error", "customerId and at least one item are required"))
+                    .build();
+        }
+
         List<CreateOrderCommand.OrderItemData> items = request.getItems().stream()
                 .map(item -> new CreateOrderCommand.OrderItemData(
                         item.getProductId(),

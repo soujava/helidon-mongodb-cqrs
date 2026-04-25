@@ -30,21 +30,7 @@ public class FindAllOrdersQueryHandler implements QueryHandler<FindAllOrdersQuer
     @Override
     public List<OrderView> handle(FindAllOrdersQuery query) {
         return orderRepository.findAll().stream()
-                .map(order -> {
-                    List<OrderView.OrderItemView> itemViews = order.getItems().stream()
-                            .map(item -> new OrderView.OrderItemView(
-                                    item.getProductId(),
-                                    item.getQuantity(),
-                                    item.getUnitPrice(),
-                                    item.getSubtotal()))
-                            .collect(Collectors.toList());
-                    return new OrderView(
-                            order.getId().getValue(),
-                            order.getCustomerId(),
-                            order.getStatus().name(),
-                            order.getTotalAmount(),
-                            itemViews);
-                })
+                .map(OrderViewMapper::toView)
                 .collect(Collectors.toList());
     }
 }

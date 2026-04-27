@@ -10,7 +10,7 @@
         <relativePath/>
     </parent>
     <groupId>expert.os</groupId>
-    <artifactId>helidon-mongodb-events</artifactId>
+    <artifactId>helidon-mongodb-cqrs</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>

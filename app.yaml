@@ -1,0 +1,37 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: helidon-mongodb-events
+  labels:
+    app: helidon-mongodb-events
+spec:
+  type: ClusterIP
+  selector:
+    app: helidon-mongodb-events
+  ports:
+    - name: tcp
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: helidon-mongodb-events
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helidon-mongodb-events
+  template:
+    metadata:
+      labels:
+        app: helidon-mongodb-events
+        version: v1
+    spec:
+      containers:
+      - name: helidon-mongodb-events
+        image: helidon-mongodb-events
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080

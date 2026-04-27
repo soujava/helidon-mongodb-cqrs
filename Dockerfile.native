@@ -32,8 +32,8 @@ FROM scratch
 WORKDIR /helidon
 
 # Copy the binary built in the 1st stage
-COPY --from=build /helidon/target/helidon-mongodb-events .
+COPY --from=build /helidon/target/helidon-mongodb-cqrs .
 
-ENTRYPOINT ["./helidon-mongodb-events"]
+ENTRYPOINT ["./helidon-mongodb-cqrs"]
 
 EXPOSE 8080

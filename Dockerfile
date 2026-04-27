@@ -31,9 +31,9 @@ FROM container-registry.oracle.com/java/jdk-no-fee-term:21
 WORKDIR /helidon
 
 # Copy the binary built in the 1st stage
-COPY --from=build /helidon/target/helidon-mongodb-events.jar ./
+COPY --from=build /helidon/target/helidon-mongodb-cqrs.jar ./
 COPY --from=build /helidon/target/libs ./libs
 
-CMD ["java", "-jar", "helidon-mongodb-events.jar"]
+CMD ["java", "-jar", "helidon-mongodb-cqrs.jar"]
 
 EXPOSE 8080

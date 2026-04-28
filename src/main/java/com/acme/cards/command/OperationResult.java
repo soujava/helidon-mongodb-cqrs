@@ -54,7 +54,9 @@ public class OperationResult {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof OperationResult that)) return false;
+        if (!(o instanceof OperationResult that)) {
+            return false;
+        }
         return Objects.equals(id, that.id);
     }
 

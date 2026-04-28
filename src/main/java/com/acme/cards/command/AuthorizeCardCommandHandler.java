@@ -29,7 +29,6 @@ public class AuthorizeCardCommandHandler {
         var operationId = UUID.randomUUID();
 
         if (!card.canAuthorize(command.amount())) {
-
             LOGGER.warning("Authorization declined for cardId=" + command.cardId());
 
             var result = new OperationResult(
@@ -44,7 +43,6 @@ public class AuthorizeCardCommandHandler {
             return result;
         }
 
-        // Apply business rule
         card.debit(command.amount());
         template.update(card);
 
@@ -58,8 +56,6 @@ public class AuthorizeCardCommandHandler {
         );
 
         template.insert(result);
-
-        // Projection step (simple, synchronous for tutorial)
         updateProjection(command, result);
 
         return result;

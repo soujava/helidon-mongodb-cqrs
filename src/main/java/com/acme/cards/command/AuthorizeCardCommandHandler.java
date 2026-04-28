@@ -34,7 +34,7 @@ public class AuthorizeCardCommandHandler {
 
             var result = new OperationResult(
                     operationId,
-                    OperationResult.Status.DECLINED,
+                    OperationStatus.DECLINED,
                     "Insufficient balance or inactive card",
                     Instant.now()
             );

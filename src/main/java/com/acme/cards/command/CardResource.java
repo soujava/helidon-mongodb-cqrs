@@ -43,7 +43,7 @@ public class CardResource {
                 .mapToObj(i -> new Card(
                         UUID.randomUUID(),
                         new BigDecimal("1000"),
-                        Card.Status.ACTIVE
+                        CardOperationStatus.ACTIVE
                 ))
                 .forEach(template::insert);
     }

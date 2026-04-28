@@ -26,35 +26,6 @@ public class TransactionView {
     @Column
     private Instant createdAt;
 
-    public TransactionView() {
-    }
 
-    public TransactionView(UUID transactionId,
-                           UUID cardId,
-                           BigDecimal amount,
-                           String status,
-                           Instant createdAt) {
-        this.transactionId = transactionId;
-        this.cardId = cardId;
-        this.amount = amount;
-        this.status = status;
-        this.createdAt = createdAt;
-    }
-
-    public UUID getTransactionId() {
-        return transactionId;
-    }
-
-    public UUID getCardId() {
-        return cardId;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public String getStatus() {
-        return status;
-    }
 
 }

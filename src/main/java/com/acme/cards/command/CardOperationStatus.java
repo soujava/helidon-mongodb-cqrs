@@ -1,5 +1,5 @@
 package com.acme.cards.command;
 
-public enum CardStatus {
+public enum CardOperationStatus {
     ACTIVE, BLOCKED
 }

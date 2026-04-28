@@ -19,6 +19,6 @@ public class Card {
     private BigDecimal availableBalance;
 
     @Column
-    private CardStatus cardStatus;
+    private CardOperationStatus cardOperationStatus;
 
 }

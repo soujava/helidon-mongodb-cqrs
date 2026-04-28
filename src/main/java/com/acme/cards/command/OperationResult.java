@@ -22,10 +22,6 @@ public class OperationResult {
     @Column
     private Instant processedAt;
 
-    public enum Status {
-        APPROVED, DECLINED
-    }
-
     public OperationResult() {
     }
 

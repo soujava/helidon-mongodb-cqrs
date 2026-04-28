@@ -21,10 +21,6 @@ public class Card {
     @Column
     private Status status;
 
-    public enum Status {
-        ACTIVE, BLOCKED
-    }
-
     public Card() {
     }
 

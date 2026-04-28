@@ -21,28 +21,28 @@ public class CardOperation {
     private BigDecimal amount;
 
     @Column
-    private Type type;
+    private CardOperationType cardOperationType;
 
     @Column
     private Instant requestedAt;
 
-    public enum Type {
+    public enum CardOperationType {
         AUTHORIZE
     }
 
     CardOperation() {
     }
 
-    public CardOperation(UUID operationId, UUID cardId, BigDecimal amount, Type type, Instant requestedAt) {
+    public CardOperation(UUID operationId, UUID cardId, BigDecimal amount, CardOperationType cardOperationType, Instant requestedAt) {
         this.operationId = operationId;
         this.cardId = cardId;
         this.amount = amount;
-        this.type = type;
+        this.cardOperationType = cardOperationType;
         this.requestedAt = requestedAt;
     }
 
     public UUID getOperationId() { return operationId; }
     public UUID getCardId() { return cardId; }
     public BigDecimal getAmount() { return amount; }
-    public Type getType() { return type; }
+    public CardOperationType getType() { return cardOperationType; }
 }

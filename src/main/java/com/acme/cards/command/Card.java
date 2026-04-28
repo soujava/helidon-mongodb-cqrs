@@ -24,4 +24,12 @@ public class Card {
     @Column
     private CardOperationStatus cardOperationStatus;
 
+    Card() {
+    }
+
+    public Card(UUID cardId, BigDecimal availableBalance, CardOperationStatus cardOperationStatus) {
+        this.cardId = cardId;
+        this.availableBalance = availableBalance;
+        this.cardOperationStatus = cardOperationStatus;
+    }
 }

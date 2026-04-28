@@ -1,5 +1,7 @@
 package com.acme.cards.command;
 
+import com.acme.infraestructure.JsonFieldStrategy;
+import jakarta.json.bind.annotation.JsonbVisibility;
 import jakarta.nosql.Column;
 import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
@@ -8,6 +10,7 @@ import java.time.Instant;
 import java.util.UUID;
 
 @Entity
+@JsonbVisibility(JsonFieldStrategy.class)
 public class OperationResult {
 
     @Id
@@ -22,17 +25,4 @@ public class OperationResult {
     @Column
     private Instant processedAt;
 
-    public OperationResult() {
-    }
-
-    public OperationResult(UUID operationId, Status status, String reason, Instant processedAt) {
-        this.operationId = operationId;
-        this.status = status;
-        this.reason = reason;
-        this.processedAt = processedAt;
-    }
-
-    public UUID getOperationId() { return operationId; }
-    public Status getStatus() { return status; }
-    public String getReason() { return reason; }
 }

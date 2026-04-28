@@ -26,10 +26,6 @@ public class CardOperation {
     @Column
     private Instant requestedAt;
 
-    public enum CardOperationType {
-        AUTHORIZE
-    }
-
     CardOperation() {
     }
 

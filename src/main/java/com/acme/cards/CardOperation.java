@@ -16,6 +16,4 @@ public record CardOperation(
         @Column CardOperationType cardOperationType,
         @Column Instant requestedAt
 ) {
-
-
 }

@@ -34,6 +34,18 @@ public class Card {
         this.cardOperationStatus = cardOperationStatus;
     }
 
+    public UUID getCardId() {
+        return cardId;
+    }
+
+    public BigDecimal getAvailableBalance() {
+        return availableBalance;
+    }
+
+    public CardOperationStatus getCardOperationStatus() {
+        return cardOperationStatus;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Card card)) {

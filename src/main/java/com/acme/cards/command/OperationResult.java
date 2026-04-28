@@ -17,7 +17,7 @@ public class OperationResult {
     private UUID operationId;
 
     @Column
-    private Status status;
+    private OperationStatus operationStatus;
 
     @Column
     private String reason;

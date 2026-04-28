@@ -1,5 +1,5 @@
 package com.acme.cards.command;
 
-public enum Status {
+public enum OperationStatus {
     APPROVED, DECLINED
 }

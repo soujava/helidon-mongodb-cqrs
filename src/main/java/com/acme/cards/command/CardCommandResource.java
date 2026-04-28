@@ -5,7 +5,6 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 import java.util.logging.Logger;
 
@@ -30,7 +29,4 @@ public class CardCommandResource {
         return handler.handle(command);
     }
 
-    public record AuthorizeRequest (BigDecimal amount){
-
-    }
 }

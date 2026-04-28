@@ -17,33 +17,42 @@ import java.util.UUID;
 public class Card {
 
     @Id
-    private UUID cardId;
+    private UUID id;
 
     @Column
     private BigDecimal availableBalance;
 
     @Column
-    private CardOperationStatus cardOperationStatus;
+    private CardOperationStatus status;
 
     Card() {
     }
 
-    public Card(UUID cardId, BigDecimal availableBalance, CardOperationStatus cardOperationStatus) {
-        this.cardId = cardId;
+    public Card(UUID id, BigDecimal availableBalance, CardOperationStatus status) {
+        this.id = id;
         this.availableBalance = availableBalance;
-        this.cardOperationStatus = cardOperationStatus;
+        this.status = status;
     }
 
-    public UUID getCardId() {
-        return cardId;
+    public UUID getId() {
+        return id;
     }
 
     public BigDecimal getAvailableBalance() {
         return availableBalance;
     }
 
-    public CardOperationStatus getCardOperationStatus() {
-        return cardOperationStatus;
+    public CardOperationStatus getStatus() {
+        return status;
+    }
+
+    public boolean canAuthorize(BigDecimal amount) {
+        return status == CardOperationStatus.ACTIVE
+                && availableBalance.compareTo(amount) >= 0;
+    }
+
+    public void debit(BigDecimal amount) {
+        this.availableBalance = this.availableBalance.subtract(amount);
     }
 
     @Override
@@ -51,20 +60,20 @@ public class Card {
         if (!(o instanceof Card card)) {
             return false;
         }
-        return Objects.equals(cardId, card.cardId);
+        return Objects.equals(id, card.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(cardId);
+        return Objects.hashCode(id);
     }
 
     @Override
     public String toString() {
         return "Card{" +
-                "cardId=" + cardId +
+                "cardId=" + id +
                 ", availableBalance=" + availableBalance +
-                ", cardOperationStatus=" + cardOperationStatus +
+                ", cardOperationStatus=" + status +
                 '}';
     }
 }

@@ -1,4 +1,4 @@
-package com.acme.cards;
+package com.acme.cards.query;
 
 import jakarta.nosql.Column;
 import jakarta.nosql.Entity;

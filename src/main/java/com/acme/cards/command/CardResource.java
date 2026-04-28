@@ -62,7 +62,7 @@ public class CardResource {
                 ))
                 .forEach(card -> {
                     template.insert(card);
-                    LOGGER.fine("Seeded card with id=" + card.getCardId()
+                    LOGGER.fine("Seeded card with id=" + card.getId()
                             + " and balance=" + card.getAvailableBalance());
                 });
 

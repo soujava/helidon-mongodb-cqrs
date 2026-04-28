@@ -19,19 +19,19 @@ public class Card {
     private BigDecimal availableBalance;
 
     @Column
-    private Status status;
+    private CardStatus cardStatus;
 
     public Card() {
     }
 
-    public Card(UUID cardId, BigDecimal availableBalance, Status status) {
+    public Card(UUID cardId, BigDecimal availableBalance, CardStatus cardStatus) {
         this.cardId = cardId;
         this.availableBalance = availableBalance;
-        this.status = status;
+        this.cardStatus = cardStatus;
     }
 
     public boolean canAuthorize(BigDecimal amount) {
-        return status == Status.ACTIVE && availableBalance.compareTo(amount) >= 0;
+        return cardStatus == CardStatus.ACTIVE && availableBalance.compareTo(amount) >= 0;
     }
 
     public void debit(BigDecimal amount) {
@@ -40,5 +40,5 @@ public class Card {
 
     public UUID getCardId() { return cardId; }
     public BigDecimal getAvailableBalance() { return availableBalance; }
-    public Status getStatus() { return status; }
+    public CardStatus getStatus() { return cardStatus; }
 }

@@ -1,5 +1,5 @@
 package com.acme.cards;
 
-public enum Status {
+public enum CardStatus {
     ACTIVE, BLOCKED
 }

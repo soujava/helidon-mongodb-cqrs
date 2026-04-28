@@ -27,5 +27,14 @@ public class TransactionView {
     private Instant createdAt;
 
 
+    public TransactionView(UUID transactionId, UUID cardId, BigDecimal amount, String status, Instant createdAt) {
+        this.transactionId = transactionId;
+        this.cardId = cardId;
+        this.amount = amount;
+        this.status = status;
+        this.createdAt = createdAt;
+    }
 
+    public TransactionView() {
+    }
 }

@@ -7,15 +7,18 @@ Sample Helidon MP project that includes multiple REST operations.
 
 With JDK21
 
-```bash
+[source,bash]
+----
 mvn package
 java -jar target/helidon-mongodb-events.jar
-```
+----
 
 == Exercise the application
 
 Basic:
-```
+
+[source, bash]
+----
 curl -X GET http://localhost:8080/simple-greet
 Hello World!
-```
+----

@@ -8,5 +8,8 @@ import java.time.Instant;
 import java.util.UUID;
 
 @Entity
-public record OperationResult (@Id UUID id, @Column  OperationStatus status, @Column String reason, @Column Instant processedAt){
+public record OperationResult(@Id UUID id,
+                              @Column OperationStatus status,
+                              @Column String reason,
+                              @Column Instant processedAt) {
 }

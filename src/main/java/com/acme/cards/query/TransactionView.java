@@ -12,7 +12,7 @@ import java.util.UUID;
 public class TransactionView {
 
     @Id
-    private UUID transactionId;
+    private UUID id;
 
     @Column
     private UUID cardId;
@@ -27,8 +27,8 @@ public class TransactionView {
     private Instant createdAt;
 
 
-    public TransactionView(UUID transactionId, UUID cardId, BigDecimal amount, String status, Instant createdAt) {
-        this.transactionId = transactionId;
+    public TransactionView(UUID id, UUID cardId, BigDecimal amount, String status, Instant createdAt) {
+        this.id = id;
         this.cardId = cardId;
         this.amount = amount;
         this.status = status;

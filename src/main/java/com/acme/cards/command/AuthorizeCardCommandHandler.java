@@ -5,6 +5,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 import jakarta.ws.rs.WebApplicationException;
+import jakarta.ws.rs.core.Response;
 import org.eclipse.jnosql.mapping.document.DocumentTemplate;
 
 import java.time.Instant;
@@ -25,7 +26,7 @@ public class AuthorizeCardCommandHandler {
                 + " amount=" + command.amount());
 
         var card = template.find(Card.class, command.cardId())
-                .orElseThrow(() -> new WebApplicationException("Card not found, cardid=" + command.cardId(), 404));
+                .orElseThrow(() -> new WebApplicationException("Card not found, cardid=" + command.cardId(), Response.Status.NOT_FOUND));
 
         var operationId = UUID.randomUUID();
 

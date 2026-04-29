@@ -1,4 +1,4 @@
-package com.acme.infraestructure;
+package com.acme.cards.infraestructure;
 
 import jakarta.json.bind.config.PropertyVisibilityStrategy;
 

@@ -9,6 +9,7 @@ import java.util.UUID;
 
 @Entity
 public record OperationResult(@Id UUID id,
+                              @Column UUID cardId,
                               @Column OperationStatus status,
                               @Column String reason,
                               @Column Instant processedAt) {

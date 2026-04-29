@@ -9,20 +9,10 @@ import java.time.Instant;
 import java.util.UUID;
 
 @Entity
-public record TransactionView (@Id
-                               UUID id,
-
-                                       @Column
-                                       UUID cardId,
-
-                                       @Column
-                                       BigDecimal amount,
-
-                                       @Column
-                                       String status,
-
-                                       @Column
-                                       Instant createdAt) {
-
+public record TransactionView(@Id UUID id,
+                              @Column UUID cardId,
+                              @Column BigDecimal amount,
+                              @Column String status,
+                              @Column Instant createdAt) {
 
 }

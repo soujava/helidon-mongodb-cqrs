@@ -5,12 +5,13 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 import jakarta.ws.rs.WebApplicationException;
-import jakarta.ws.rs.core.Response;
 import org.eclipse.jnosql.mapping.document.DocumentTemplate;
 
 import java.time.Instant;
 import java.util.UUID;
 import java.util.logging.Logger;
+
+import static jakarta.ws.rs.core.Response.Status.NOT_FOUND;
 
 @ApplicationScoped
 public class AuthorizeCardCommandHandler {
@@ -26,7 +27,7 @@ public class AuthorizeCardCommandHandler {
                 + " amount=" + command.amount());
 
         var card = template.find(Card.class, command.cardId())
-                .orElseThrow(() -> new WebApplicationException("Card not found, cardid=" + command.cardId(), Response.Status.NOT_FOUND));
+                .orElseThrow(() -> new WebApplicationException("Card not found, cardid=" + command.cardId(), NOT_FOUND));
 
         var operationId = UUID.randomUUID();
 

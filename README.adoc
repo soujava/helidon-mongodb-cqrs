@@ -46,3 +46,37 @@ curl -X POST http://localhost:8080/cards/{cardId}/authorize \
 ----
 curl http://localhost:8080/cards/{cardId}/transactions
 ----
+
+== Sequence Diagram
+
+[mermaid]
+----
+sequenceDiagram
+    participant Client
+    participant CommandResource
+    participant CommandHandler
+    participant Card
+    participant OperationResult
+    participant Projection
+    participant QueryResource
+
+    Client->>CommandResource: POST /cards/{id}/authorize
+    CommandResource->>CommandHandler: AuthorizeCardCommand
+
+    CommandHandler->>Card: load & validate
+    Card-->>CommandHandler: canAuthorize?
+
+    alt Approved
+        CommandHandler->>Card: debit(amount)
+        CommandHandler->>OperationResult: create APPROVED
+        CommandHandler->>Projection: update TransactionView
+    else Declined
+        CommandHandler->>OperationResult: create DECLINED
+    end
+
+    CommandHandler-->>CommandResource: OperationResult
+    CommandResource-->>Client: 200 OK (OperationResult)
+
+    Client->>QueryResource: GET /cards/{id}/transactions
+    QueryResource-->>Client: TransactionView[]
+----

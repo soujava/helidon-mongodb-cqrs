@@ -29,6 +29,8 @@ public class CardQueryResource {
         return template.select(TransactionView.class)
                 .where("cardId")
                 .eq(cardId)
+                .orderBy("createdAt")
+                .desc()
                 .result();
     }
 }

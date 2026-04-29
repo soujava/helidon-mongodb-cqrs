@@ -71,7 +71,7 @@ public class Card {
     @Override
     public String toString() {
         return "Card{" +
-                "cardId=" + id +
+                "id=" + id +
                 ", availableBalance=" + availableBalance +
                 ", cardOperationStatus=" + status +
                 '}';

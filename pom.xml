@@ -13,11 +13,21 @@
     <artifactId>helidon-mongodb-cqrs</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jnosql.databases</groupId>
             <artifactId>jnosql-mongodb</artifactId>
             <version>1.1.13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jnosql.metamodel</groupId>
+            <artifactId>mapping-metamodel-processor</artifactId>
+            <version>1.1.13</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>io.helidon.microprofile.bundles</groupId>

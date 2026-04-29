@@ -24,12 +24,6 @@
             <version>${jnosql.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.jnosql.metamodel</groupId>
-            <artifactId>mapping-metamodel-processor</artifactId>
-            <version>${jnosql.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>io.helidon.microprofile.bundles</groupId>
             <artifactId>helidon-microprofile-core</artifactId>
         </dependency>

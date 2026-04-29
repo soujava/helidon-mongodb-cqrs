@@ -33,6 +33,7 @@ public class AuthorizeCardCommandHandler {
 
             var result = new OperationResult(
                     operationId,
+                    card.getId(),
                     OperationStatus.DECLINED,
                     "Insufficient balance or inactive card",
                     Instant.now()
@@ -50,6 +51,7 @@ public class AuthorizeCardCommandHandler {
 
         var result = new OperationResult(
                 operationId,
+                card.getId(),
                 OperationStatus.APPROVED,
                 null,
                 Instant.now()

@@ -6,6 +6,7 @@ import jakarta.nosql.Id;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -36,5 +37,29 @@ public class TransactionView {
     }
 
     public TransactionView() {
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof TransactionView that)) {
+            return false;
+        }
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "TransactionView{" +
+                "id=" + id +
+                ", cardId=" + cardId +
+                ", amount=" + amount +
+                ", status='" + status + '\'' +
+                ", createdAt=" + createdAt +
+                '}';
     }
 }

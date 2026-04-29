@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Entity
 public record CardOperation(
-        @Id UUID operationId,
+        @Id UUID id,
         @Column UUID cardId,
         @Column BigDecimal amount,
         @Column CardOperationType cardOperationType,

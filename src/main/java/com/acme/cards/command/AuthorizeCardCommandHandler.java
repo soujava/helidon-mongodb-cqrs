@@ -63,7 +63,7 @@ public class AuthorizeCardCommandHandler {
 
     private void updateProjection(AuthorizeCardCommand command, OperationResult result) {
 
-        LOGGER.info("Updating transaction view for operationId=" + result.getId());
+        LOGGER.info("Updating transaction view for id=" + result.getId());
 
         var view = new TransactionView(
                 result.getId(),

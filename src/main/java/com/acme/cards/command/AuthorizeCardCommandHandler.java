@@ -4,6 +4,7 @@ import com.acme.cards.query.TransactionView;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
+import jakarta.ws.rs.WebApplicationException;
 import org.eclipse.jnosql.mapping.document.DocumentTemplate;
 
 import java.time.Instant;
@@ -24,7 +25,7 @@ public class AuthorizeCardCommandHandler {
                 + " amount=" + command.amount());
 
         var card = template.find(Card.class, command.cardId())
-                .orElseThrow(() -> new IllegalArgumentException("Card not found"));
+                .orElseThrow(() -> new WebApplicationException("Card not found, cardid=" + command.cardId(), 404));
 
         var operationId = UUID.randomUUID();
 

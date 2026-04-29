@@ -13,16 +13,6 @@ mvn package
 java -jar target/helidon-mongodb-events.jar
 ----
 
-== Exercise the application
-
-Basic:
-
-[source, bash]
-----
-curl -X GET http://localhost:8080/simple-greet
-Hello World!
-----
-
 == Running the Scenario with cURL
 
 === 1. Create a Card

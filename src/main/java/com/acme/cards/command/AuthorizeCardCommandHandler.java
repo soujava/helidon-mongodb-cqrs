@@ -18,8 +18,16 @@ public class AuthorizeCardCommandHandler {
 
     private static final Logger LOGGER = Logger.getLogger(AuthorizeCardCommandHandler.class.getName());
 
+    private final DocumentTemplate template;
+
     @Inject
-    private DocumentTemplate template;
+    public AuthorizeCardCommandHandler(DocumentTemplate template) {
+        this.template = template;
+    }
+
+    AuthorizeCardCommandHandler() {
+        this.template = null;
+    }
 
     public OperationResult handle(AuthorizeCardCommand command) {
 

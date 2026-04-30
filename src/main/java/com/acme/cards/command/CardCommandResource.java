@@ -24,8 +24,7 @@ public class CardCommandResource {
 
         LOGGER.info("Received authorize request for cardId=" + cardId);
 
-        var command = new AuthorizeCardCommand(cardId, request.amount());
-
+        var command = new AuthorizeCardCommand(cardId, request.amount(), request.reason());
         return handler.handle(command);
     }
 

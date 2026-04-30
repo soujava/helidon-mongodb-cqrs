@@ -21,8 +21,16 @@ public class CardResource {
 
     private static final Logger LOGGER = Logger.getLogger(CardResource.class.getName());
 
+    private final DocumentTemplate template;
+
     @Inject
-    private DocumentTemplate template;
+    public CardResource(DocumentTemplate template) {
+        this.template = template;
+    }
+
+    CardResource() {
+        this.template = null;
+    }
 
     @GET
     public List<Card> findAll() {

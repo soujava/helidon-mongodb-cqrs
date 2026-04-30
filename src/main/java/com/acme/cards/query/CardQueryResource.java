@@ -18,8 +18,16 @@ public class CardQueryResource {
 
     private static final Logger LOGGER = Logger.getLogger(CardQueryResource.class.getName());
 
+    private final DocumentTemplate template;
+
     @Inject
-    private DocumentTemplate template;
+    public CardQueryResource(DocumentTemplate template) {
+        this.template = template;
+    }
+
+    CardQueryResource() {
+        this.template = null;
+    }
 
     @GET
     public List<TransactionView> findByCardId(@PathParam("id") UUID cardId) {

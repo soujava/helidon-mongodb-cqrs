@@ -65,7 +65,7 @@ curl http://localhost:8080/cards/{cardId}/transactions
 
 == Architecture overview
 
-[mermaid]
+[source, mermaid]
 ----
 sequenceDiagram
     participant Client

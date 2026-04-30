@@ -8,7 +8,23 @@ To run this project, you will need the following:
 
 * *Java 21*
 * *Maven 3.9+*
+* *MongoDB* (choose one option)
 
+**Option 1: MongoDB Atlas (Cloud)**
+
+- A MongoDB Atlas account
+- A running cluster
+- Connection string configured in the application
+
+**Option 2: Local MongoDB (Docker)**
+
+[source,bash]
+----
+docker run -d \
+  --name mongodb \
+  -p 27017:27017 \
+  mongo:latest
+----
 
 [source,bash]
 ----

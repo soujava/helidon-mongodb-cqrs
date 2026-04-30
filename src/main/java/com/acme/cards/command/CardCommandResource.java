@@ -16,8 +16,16 @@ public class CardCommandResource {
 
     private static final Logger LOGGER = Logger.getLogger(CardCommandResource.class.getName());
 
+    private final AuthorizeCardCommandHandler handler;
+
     @Inject
-    private AuthorizeCardCommandHandler handler;
+    public CardCommandResource(AuthorizeCardCommandHandler handler) {
+        this.handler = handler;
+    }
+
+    CardCommandResource() {
+        this.handler = null;
+    }
 
     @POST
     public OperationResult authorize(@PathParam("id") UUID cardId, AuthorizeRequest request) {

@@ -63,7 +63,7 @@ curl -X POST http://localhost:8080/cards/{cardId}/authorize \
 curl http://localhost:8080/cards/{cardId}/transactions
 ----
 
-== Sequence Diagram
+== Architecture overview
 
 [mermaid]
 ----

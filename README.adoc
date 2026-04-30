@@ -20,10 +20,7 @@ To run this project, you will need the following:
 
 [source,bash]
 ----
-docker run -d \
-  --name mongodb \
-  -p 27017:27017 \
-  mongo:latest
+docker run -d --name mongodb -p 27017:27017 mongo:latest
 ----
 
 [source,bash]

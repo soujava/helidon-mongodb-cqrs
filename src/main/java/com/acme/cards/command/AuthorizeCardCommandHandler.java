@@ -56,7 +56,7 @@ public class AuthorizeCardCommandHandler {
                 operationId,
                 card.getId(),
                 OperationStatus.APPROVED,
-                null,
+                command.reason(),
                 Instant.now()
         );
 

@@ -4,7 +4,11 @@ This project demonstrates a minimal implementation of Command Query Responsibili
 
 == Build and run
 
-With JDK21
+To run this project, you will need the following:
+
+* *Java 21*
+* *Maven 3.9+*
+
 
 [source,bash]
 ----

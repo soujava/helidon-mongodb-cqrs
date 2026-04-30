@@ -1,8 +1,8 @@
 = helidon-mongodb-cqrs
 
 This project demonstrates a minimal implementation of Command Query Responsibility Segregation (CQRS) using Java, Helidon MP, and MongoDB via Jakarta NoSQL. Instead of focusing on infrastructure or completeness, the goal is to highlight the core idea behind CQRS: separating how the system processes commands (writes) from how it serves queries (reads). Through a simple card authorization scenario, you can observe how a command produces a decision and how that decision is later reflected in a query model, making the distinction between intent, state change, and representation explicit.
-== Build and run
 
+== Build and run
 
 With JDK21
 

@@ -1,7 +1,5 @@
 package com.acme.cards.command;
 
-
-
 import com.acme.cards.infraestructure.JsonFieldStrategy;
 import jakarta.json.bind.annotation.JsonbVisibility;
 import jakarta.nosql.Column;

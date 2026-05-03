@@ -58,6 +58,11 @@ public class Card {
                 && availableBalance.compareTo(amount) >= 0;
     }
 
+    /**
+     * Deducts the specified amount from the available balance of the card.
+     *
+     * @param amount the amount to be debited from the card's available balance
+     */
     public void debit(BigDecimal amount) {
         this.availableBalance = this.availableBalance.subtract(amount);
     }

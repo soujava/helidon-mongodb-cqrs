@@ -44,6 +44,15 @@ public class Card {
         return status;
     }
 
+    /**
+     * Determines whether a card can authorize a transaction for the given amount.
+     * The authorization is possible only if the card is active and the available
+     * balance is greater than or equal to the specified amount.
+     *
+     * @param amount the transaction amount to be authorized
+     * @return true if the card is active and has sufficient available balance
+     *         to authorize the transaction, false otherwise
+     */
     public boolean canAuthorize(BigDecimal amount) {
         return status == CardOperationStatus.ACTIVE
                 && availableBalance.compareTo(amount) >= 0;

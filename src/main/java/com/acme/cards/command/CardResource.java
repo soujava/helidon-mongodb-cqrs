@@ -21,6 +21,7 @@ import java.util.stream.IntStream;
 public class CardResource {
 
     private static final Logger LOGGER = Logger.getLogger(CardResource.class.getName());
+    private static final BigDecimal INITIAL_BALANCE = new BigDecimal("1000");
 
     private final DocumentTemplate template;
 
@@ -64,7 +65,7 @@ public class CardResource {
         IntStream.range(0, 5)
                 .mapToObj(i -> new Card(
                         UUID.randomUUID(),
-                        new BigDecimal("1000"),
+                        INITIAL_BALANCE,
                         CardOperationStatus.ACTIVE
                 ))
                 .forEach(card -> {

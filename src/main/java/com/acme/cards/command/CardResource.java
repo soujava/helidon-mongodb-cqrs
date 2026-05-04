@@ -9,6 +9,7 @@ import jakarta.ws.rs.core.Response;
 import org.eclipse.jnosql.mapping.document.DocumentTemplate;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
@@ -59,7 +60,8 @@ public class CardResource {
                 );
     }
 
-    private void generateCards() {
+    private List<Card> generateCards() {
+        List<Card> cards = new ArrayList<>(); ;
 
         IntStream.range(0, 5)
                 .mapToObj(i -> new Card(
@@ -68,11 +70,12 @@ public class CardResource {
                         CardOperationStatus.ACTIVE
                 ))
                 .forEach(card -> {
-                    template.insert(card);
+                    cards.add(template.insert(card));
                     LOGGER.fine("Seeded card with id=" + card.getId()
                             + " and balance=" + card.getAvailableBalance());
                 });
 
-        LOGGER.info("Finished seeding cards");
+        LOGGER.info("Finished seeding cards + " + cards.size() + " cards created");
+        return cards;
     }
 }

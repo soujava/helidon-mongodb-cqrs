@@ -42,8 +42,7 @@ public class CardResource {
         List<Card> cards = template.select(Card.class).result();
         if (cards.isEmpty()) {
             LOGGER.warning("No cards found. Seeding initial dataset...");
-            seedCards();
-            cards = template.select(Card.class).result();
+            cards = generateCards();;
         }
         LOGGER.info("Returning " + cards.size() + " cards");
         return cards;
@@ -60,7 +59,7 @@ public class CardResource {
                 );
     }
 
-    private void seedCards() {
+    private void generateCards() {
 
         IntStream.range(0, 5)
                 .mapToObj(i -> new Card(

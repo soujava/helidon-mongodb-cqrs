@@ -50,7 +50,7 @@ public class Card {
      * balance is greater than or equal to the specified amount.
      *
      * @param amount the transaction amount to be authorized
-     * @return true if the card is active and has sufficient available balance
+     * @return true if the card is active and has enough available balance
      *         to authorize the transaction, false otherwise
      */
     public boolean canAuthorize(BigDecimal amount) {

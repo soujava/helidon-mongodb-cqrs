@@ -5,6 +5,7 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
+import jakarta.ws.rs.core.Response;
 import org.eclipse.jnosql.mapping.document.DocumentTemplate;
 
 import java.math.BigDecimal;
@@ -53,11 +54,9 @@ public class CardResource {
 
         LOGGER.info("Fetching card with id=" + id);
 
-        return template.find(Card.class, id)
-                .orElseThrow(() -> {
-                    LOGGER.severe("Card not found with id=" + id);
-                    return new NotFoundException("Card not found");
-                });
+        return template.find(Card.class, id).orElseThrow(() ->
+                   new WebApplicationException("Card not found with the id: " + id, Response.Status.NOT_FOUND)
+                );
     }
 
     private void seedCards() {
